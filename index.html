@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game by Aman Sheikh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init()">
+    <div class="container" id="container">
+        <div class="main">
+            <h3>GAME<br>Guess the random number between 1-100 </h3>
+            <img src="game.svg">
+            <p>Select the difficulty level</p>
+            <div class="buttons">
+                <button onclick="easyMode()">Easy: 10 Attempts</button>
+                <button onclick="hardMode()">Hard: 5 Attempts</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="playzone" id="playzone">
+        <div class="zone">
+            <div class="newgame" id="newgame">
+                <button onclick="newGameBegin()">New Game</button>
+            </div>
+            <div class="head">
+                <h2 id="zoneheading">Your Guess</h2>
+                <input type="number" id="inputbox" min="1" max="100" placeholder="Enter the number"
+                    onchange="compareGuess()">
+            </div>
+            <div class="stats">
+                <div class="info">
+                    <p>Number of previous attempts</p>
+                    <span id="attempts">0</span>
+                </div>
+                <div class="info">
+                    <p>Number of previous guesses</p>
+                    <span id="guesses">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="made">
+        <h5>Made by AMAN SHEIKH</h5>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

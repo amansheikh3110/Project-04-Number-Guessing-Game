@@ -5,19 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game by Aman Sheikh</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Number Guessing Game - by Aman Sheikh</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/game.svg">
 </head>
 
 <body onload="init()">
     <div class="container" id="container">
         <div class="main">
-            <h3>GAME<br>Guess the random number between 1-100 </h3>
-            <img src="game.svg">
+            <h3>NUMBER GUESSING GAME<br><span class="subtitle">Guess the random number between 1-100</span></h3>
+            <img src="assets/game.svg" alt="Game Icon">
             <p>Select the difficulty level</p>
             <div class="buttons">
-                <button onclick="easyMode()">Easy: 10 Attempts</button>
-                <button onclick="hardMode()">Hard: 5 Attempts</button>
+                <button onclick="easyMode()" class="easy-btn">🟢 Easy: 10 Attempts</button>
+                <button onclick="mediumMode()" class="medium-btn">🟡 Medium: 7 Attempts</button>
+                <button onclick="hardMode()" class="hard-btn">🔴 Hard: 5 Attempts</button>
+            </div>
+            <div class="leaderboard-btn-container">
+                <button onclick="showLeaderboard()" class="leaderboard-btn">🏆 View Leaderboard</button>
             </div>
         </div>
     </div>
@@ -25,30 +30,59 @@
     <div class="playzone" id="playzone">
         <div class="zone">
             <div class="newgame" id="newgame">
-                <button onclick="newGameBegin()">New Game</button>
+                <button onclick="newGameBegin()">🎮 New Game</button>
+            </div>
+            <div class="timer-section">
+                <p>⏱️ Time: <span id="timer">00:00</span></p>
+                <p>🎯 Difficulty: <span id="difficulty">-</span></p>
             </div>
             <div class="head">
                 <h2 id="zoneheading">Your Guess</h2>
-                <input type="number" id="inputbox" min="1" max="100" placeholder="Enter the number"
+                <input type="number" id="inputbox" min="1" max="100" placeholder="Enter number (1-100)"
                     onchange="compareGuess()">
+                <div class="hint-section">
+                    <button onclick="getHint()" id="hintBtn" class="hint-btn">💡 Get Hint (Max 2)</button>
+                    <p id="hintText" class="hint-text"></p>
+                </div>
             </div>
             <div class="stats">
                 <div class="info">
-                    <p>Number of previous attempts</p>
-                    <span id="attempts">0</span>
+                    <p>Attempts Used</p>
+                    <span id="attempts">0 / 10</span>
                 </div>
                 <div class="info">
-                    <p>Number of previous guesses</p>
+                    <p>Previous Guesses</p>
                     <span id="guesses">-</span>
+                </div>
+                <div class="info">
+                    <p>Best Score</p>
+                    <span id="bestScore">-</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="made">
-        <h5>Made by AMAN SHEIKH</h5>
+    <!-- Leaderboard Modal -->
+    <div class="modal" id="leaderboardModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLeaderboard()">&times;</span>
+            <h2>🏆 Leaderboard</h2>
+            <div class="difficulty-tabs">
+                <button onclick="showLeaderboardTab('easy')" class="tab-btn active" id="easyTab">Easy</button>
+                <button onclick="showLeaderboardTab('medium')" class="tab-btn" id="mediumTab">Medium</button>
+                <button onclick="showLeaderboardTab('hard')" class="tab-btn" id="hardTab">Hard</button>
+            </div>
+            <div id="leaderboardContent" class="leaderboard-content">
+                <!-- Leaderboard entries will be dynamically inserted here -->
+            </div>
+            <button onclick="clearLeaderboard()" class="clear-btn">Clear Leaderboard</button>
+        </div>
     </div>
-    <script src="index.js"></script>
+
+    <div class="made">
+        <h5>Made with ❤️ by AMAN SHEIKH</h5>
+    </div>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

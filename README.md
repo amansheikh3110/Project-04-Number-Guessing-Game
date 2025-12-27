@@ -2,7 +2,9 @@
 
 A fun and interactive number guessing game built with HTML, CSS, and JavaScript. Test your luck and skills by guessing a random number between 1 and 100!
 
-![Game Screenshot](assets/game.svg)
+![Game Screenshot](./image.png)
+
+Deployed Link --> https://fastidious-cassata-44d456.netlify.app
 
 ## 🌟 Features
 
